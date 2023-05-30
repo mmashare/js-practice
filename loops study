@@ -1,0 +1,28 @@
+
+console.log("hii");
+let a =0;
+
+///////////////// while loop
+
+while(a <= 10){
+    console.log(`while loop value is ${a}....` );
+    a++ // increment of a. so the loop according to the condition
+}
+
+console.log("----------------------------------------")
+///////////// do while loop
+let z =0;
+do{
+    console.log(`do while loop value is ${z}`)  
+    // it works like same like while() but first it run the code first time then it read the condition 
+    z++ // increment of a. so the loop according to the condition
+}while(z<=10)
+
+console.log("----------------------------------------")
+////////////// for loop 
+// for(create a variable,put condition,increment the same variable)
+for(let i=0; i<=10;i++){
+    // here we don't need to increment the i value in curly bracket because we already incremnet it in rounded bracket.
+    console.log(`for loop value is ${i}`)
+}
+
