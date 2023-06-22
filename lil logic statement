@@ -1,0 +1,14 @@
+
+let total = 5
+
+for(let i =0;i<=10;i++){
+    total= total +i
+    console.log("i",i)
+    console.log("total",total)
+}
+// console.log(total)
+
+
+
+
+
