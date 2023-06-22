@@ -1,0 +1,27 @@
+
+const myObjects = { a: 1, b: 2, c: 3 };
+const myarray = ["apple","banana","grapes"];
+
+// for in mainly used for interate {{{{objects}}}} properties/keys(x) and values(myObjects[x])
+    for(let x in myObjects){
+        // console.log(x)
+        
+        console.log(myObjects[x])
+    }
+
+// for of mainly used for array like ds, it's mean it iterate over a sequence of values.
+    for(let x of myarray){
+        console.log(x) //apple,banana,grapes
+    }
+    
+    // another example
+    const iterable = [
+                      ["a", 1],
+                      ["b", 2],
+                      ["c", 3],
+                    ];
+                    
+    // never apply this method to print obj  it will not works. only works for 2d arrays
+    for(let [keys,values] of iterable){
+        console.log(keys,values)
+    }
