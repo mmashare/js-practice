@@ -1,0 +1,15 @@
+
+// convert string number to number datatype
+
+let a = "35"
+console.log(typeof a)
+
+// convert a into Number datatype then store it in numA
+let numA = Number(a)
+console.log(typeof numA)
+
+
+
+
+
+
