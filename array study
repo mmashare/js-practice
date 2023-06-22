@@ -1,0 +1,17 @@
+// array study
+
+let array = [5,5.5,"apple",null,undefined];
+console.log(array)
+
+// changing elements in array
+
+let fruit = ["apple","mango","banana"];
+fruit[1] = "myfruit"
+console.log(fruit)
+
+// checking is it a array? 
+
+let fruit1 = ["apple","mango","banana"];
+console.log(Array.isArray(fruit1)) // true
+
+
