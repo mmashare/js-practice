@@ -19,3 +19,31 @@ console.log(Array.isArray(fruit1)) // true
 let arr = [1,2,3];
 // it will print object even though it's a array, because sometimes array also included in array
 console.log(typeof arr) // object
+
+
+/////////// push and pop study
+let myarr = [1,2,3];
+
+///////// push add value at the last of array
+myarr.push(34);
+console.log(myarr)
+
+/// pop remove the value at the last of array
+myarr.pop()
+console.log(myarr)
+
+console.log("--------------------------------------------")
+
+////////// unshift and shift study
+
+let myarr1 = [1,2,3];
+
+/// unshift() - add element in begining of the array.it works slower than push 
+myarr1.unshift(0)
+console.log(myarr1)
+
+/// shift() - remove element in begining of the array.it works slower than pop 
+myarr1.shift()
+console.log(myarr1)
+
+
