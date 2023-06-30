@@ -1,17 +1,21 @@
-// array study
+////////// array study
 
 let array = [5,5.5,"apple",null,undefined];
 console.log(array)
 
-// changing elements in array
+//// changing elements in array
 
 let fruit = ["apple","mango","banana"];
 fruit[1] = "myfruit"
 console.log(fruit)
 
-// checking is it a array? 
+//// checking is it a array? 
 
 let fruit1 = ["apple","mango","banana"];
 console.log(Array.isArray(fruit1)) // true
 
+//// confusing thing in js(sometimes js include array in oject)
 
+let arr = [1,2,3];
+// it will print object even though it's a array, because sometimes array also included in array
+console.log(typeof arr) // object
