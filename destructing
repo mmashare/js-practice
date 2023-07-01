@@ -1,0 +1,8 @@
+////// destructring in array
+
+let myarr = ["item1","item2","item3","item4"];
+//// ...elment3 -> means rest all values stored in it. it's called spread operator
+let [element1,element2,...element3] = myarr;
+console.log(element1)
+console.log(element2)
+console.log(element3)
