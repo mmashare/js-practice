@@ -1,0 +1,36 @@
+////////////// ways to copy array
+
+//// by slice method
+
+let array1 = ["item1","item2"];
+console.log(array1)
+
+let array2 = array1.slice(0);
+// 0 means the elements index from where to start copying the array's element.
+console.log(array2)
+
+//// by concatination
+
+let array3 = ["item1","item2"];
+console.log(array3);
+
+let array4 = [].concat(array3,"item3","item4");
+// by concat we linked together many elements in a seprate
+console.log(array4)
+
+console.log("-----------------------------------------------------")
+
+//// concat study {{{extra study}}}
+
+// mainly use to add element in ds and also for edit elements
+let str1 = "Hello"
+let str2 = "World"
+
+console.log(str1.concat("--",str2)) //Hello--World
+console.log(str2.concat(">>",str1)) //World>>Hello
+
+//// by spread operator
+
+let arr1 = ["item1","item2"]
+let arr2 = [...arr1,"item3"]
+console.log(arr2)
