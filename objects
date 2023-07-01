@@ -1,0 +1,16 @@
+////////// objects in js
+
+let ufc = {
+    lightweight:"khabib",
+    fetherweight:"alex",
+    welterweight:"usman",
+    leightheavyweight:"jon"
+}
+///// here we destructure values from object
+
+// here we change the name of our key
+let {lightweight:element1,fetherweight:element2,welterweight:element3,leightheavyweight:element4} = ufc
+console.log(element1)
+console.log(element2)
+console.log(element3)
+console.log(element4)
