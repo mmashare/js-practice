@@ -85,3 +85,41 @@ console.log(Object.hasOwn(killer1,"a")) //true
 console.log(Object.hasOwn(killer1,"b")) // true
 console.log(Object.hasOwn(killer1,"saitama")) //true
 console.log(Object.hasOwn(killer1,"saitama2")) //true
+
+////// Object.keys()
+
+console.log("--------------------------------------")
+const object11 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+
+console.log(Object.keys(object11));
+
+
+////// Object.keys()
+// it print all the keys of a obj in a array
+console.log("--------------------------------------")
+
+const object13 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+
+console.log(Object.keys(object13));
+// Expected output: Array ["a", "b", "c"]
+
+///////// Object.values()
+// it print all the values of a obj in a array
+console.log("--------------------------------------")
+
+const object12 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+
+console.log(Object.values(object12));
+// Expected output: Array ["somestring", 42, false]
