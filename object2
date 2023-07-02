@@ -1,0 +1,87 @@
+/////////// adding values in obj
+
+let myarr = {Id:1,Name:"himanshu"};
+myarr["class"] = "11th"
+console.log(myarr)
+
+//// acessing values from obj
+
+let person = {
+    name:"himanshu",
+    age:17,
+    hobbies:["ufc","cricket","programing"]
+}
+
+console.log(person["hobbies"])
+console.log(person.hobbies)
+
+// always know in obj while destructing key name should be same although you can change their key name after destructing the values
+const {name:element11,age:element22,hobbies:element33} = person;
+console.log(element11)
+console.log(element22)
+console.log(element33)
+console.log("------------------------------------------------")
+
+///// object.assign()
+/// in this method we apply changes into a target obj from a source obj(source obj can be one or more).
+
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+console.log("target",target)
+let allobjValue = Object.assign(target,source)
+console.log("target",target)
+// you can see the changes in target obj, with the help of obj assign we store values from source obj to target obj. -> note object assign does not store similer {key:value} in target which is already stored in target obj
+console.log("allobjValue",allobjValue)
+console.log(target === allobjValue)
+// because allobjValue stores target's {key:value} in it. so they both are equal
+
+///// object.create()
+// here we create new obj with an existing obj. and the new obj use old obj as it's prototype.
+// prototype - if you apply changes in new obj it will apply in old obj. also you can add more {key:value} in new obj.
+
+console.log("-------------------------------------------------")
+
+const person1 = {
+  isHuman: false,
+  printIntroduction: function() {
+// name key is not here, but we will get this key from new obj
+// this - with the help of this keyword you can take values from outside of function. like from parent obj or new obj which is attach to it. 
+    console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+  }
+};
+
+let me = Object.create(person1);
+me.name = "himanshu"; // new property add in me which is acessable by person1 also,because person1 is prototype of me obj
+me.isHuman = true; // here we change the prototype obj keys by new obj
+
+me.printIntroduction();
+// now the values shared in all obj(prototype old/new)
+
+console.log("-------------------------------------------------")
+
+//// Object.entries()
+// as we know forOf loop can not interate obj {key,values}. but if we use Object.entries() with forOf loop then it can print {key:value}
+
+const object1 = {
+  a: 'somestring',
+  b: 42
+};
+
+for(let [key,value] of Object.entries(object1)){
+    console.log(`${key}:${value}`) //a:somestring,b:42
+}
+
+///// Object.hasOwn()
+// it helps to finds the key present in obj or not. either the value is undefined/null it will return true just need to present that key.
+
+const killer1 = {
+  a: 'somestring',
+  b: 42,
+  saitama:null,
+  saitama2:undefined
+};
+// Object.hasOwn(objName,"keyName")
+console.log(Object.hasOwn(killer1,"a")) //true
+console.log(Object.hasOwn(killer1,"b")) // true
+console.log(Object.hasOwn(killer1,"saitama")) //true
+console.log(Object.hasOwn(killer1,"saitama2")) //true
