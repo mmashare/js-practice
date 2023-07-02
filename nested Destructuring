@@ -1,0 +1,25 @@
+ /////////// nested destructuring
+ 
+ let users = [
+     {name:"inshul",Class:"11th",marks:"45"},
+     {name:"ankush",Class:"12th",marks:"55"},
+     {name:"himanshu",Class:"10th",marks:"90"}
+     ]
+    
+////// here we destructure, a whole obj 
+const [user1,user2,user3] = users;
+
+console.log(user1.name)  // inshul
+console.log(user2) // { name: 'ankush', Class: '12th', marks: '55' }
+console.log(user3) // { name: 'himanshu', Class: '10th', marks: '90' }
+
+////// here we destructure, only obj's single key.
+
+const [{name:InshulMarks},{Class},{marks}] = users;
+// name comes from first obj
+// Class comes from second obj
+// marks comes from third obj
+
+console.log(InshulMarks) // inshul
+console.log(Class) // 12th
+console.log(marks) // 90
