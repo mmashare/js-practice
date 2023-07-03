@@ -1,0 +1,24 @@
+////////// types of function in js
+
+//// function declaration
+function myFunc1(yourName){
+    console.log(`hello world1 - ${yourName}`)
+}
+
+///// function expression
+// with that way you can write func under a variable
+let myfun2 = function(yourName){
+    console.log(`hello world2 - ${yourName}`)
+}
+///// arrow function
+// arrow func is more clear way to write function expression, it launch in es6 2015 js.
+let myfun3 = (yourName)=>{
+    console.log(`hello world3 ${yourName}`)
+}
+// more clean way to return something 
+let myfun4 = (num1, num2) => num1 + num2
+
+myFunc1("hms") //hello world1 - hms
+myfun2("ims") // hello world2 - ims
+myfun3("kms") // hello world3 kms
+console.log(myfun4(4,4)) // 8
