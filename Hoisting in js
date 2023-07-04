@@ -1,0 +1,48 @@
+// hoisting -> the phenomena by which we access the function and variable even before we initialized  it.
+// how hosting works, we get this knowledge after we understand how js works internally.
+
+// example - 
+
+getName() // hello world
+
+// console.log(y)  // y is not defined
+// here we got an error which is (not defined). so not defined and undefined is totally different in js. not defined means the thing you want to access is not exist here where undefined means something else.
+
+console.log(x) // undefined 
+// undefined is not an error in js. it's a keyword which show that the thing you want to access has got memory allocation but the value is not get initailized.
+// here we accesing the function and variable even before initailizing it.
+
+
+
+function getName(){
+    console.log("hello world")
+}
+var x = 7;
+
+////////// how function hoisting works in js
+
+myName1();  // my name 1
+myName2(); // Cannot access 'myName2' before initialization
+myName3(); // Cannot access 'myName3' before initialization
+
+/// here we get only normal function value not arrow function and function expression value. why -> because we made function inside a variable so js does not consider arrow function as a function in hoisting process. js consider arrow function as a normal variable.
+
+// normal function
+function myName1(){
+    console.log("my name 1")
+}
+// arrow function
+var myName2 = ()=>{
+    console.log("my name 2")
+}
+// function expression
+var myName3 = function(){
+    console.log("my name 3")
+}
+
+////// how var,let and const keyword works in hoisting process
+
+
+
+
+
