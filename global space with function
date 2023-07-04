@@ -1,0 +1,18 @@
+///// how function works in js
+
+// here we make the same name variable multiple times.x variable has made in many place
+
+var x = 10;
+console.log(x) // 10
+/// as we know we made x variable in amny places but here we get value of 10. but why because when you do console.log(x) it search that variable only in global space(mat lab jo varibale function/object/class ke bahar alag se bane hai). so that's why it only read x variable which is made outside by func. and let's say we remove the original x variable from global space(jo x variable bahar banan hai) it will give a error and that is x is not defined why because as we study coinsole.log() in global space only search varibale in global space not under in func/class/obj or other in data structure.
+
+
+function MyName(){
+    var x = 7;
+    console.log(x)
+}
+
+function MyName2(){
+    var x = 8;
+    console.log(x)
+}
