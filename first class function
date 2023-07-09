@@ -1,0 +1,39 @@
+/// what is first class function?
+/// a function can be a first class function if there is these 3 points are applying.
+////// A function can be passed as an argument to other functions.
+///// or A function can be returned by another function.
+//// or A function can be assigned as a value to a variable.
+
+
+////// Example 1 - Assigning a function to a variable.
+/// because yaha hamne function ko koi bhi name nhi diya hai so it's called a Anonymous Function.
+    var myfun = function(){
+        
+        console.log("hello world")
+    }
+    myfun()
+
+// Note - if we want to give a name to that funtion we can, if we give a name to this function it won't effect anything.But if you give a name to this function it will help you in debugging process.
+
+////// Example 2 - Passing a function as an argument
+
+    function sayHello(){
+        return "hello"
+    }
+    
+    function gretting(parm1){
+        console.log(parm1,"jimmy")
+    }
+
+/// here we pass a function into a fun as an argument.
+gretting(sayHello()) 
+
+
+////// Example 3 - Returning a function by a function
+    function myfun2(){
+        return ()=>{ /// here we return a func by a func
+            console.log("hello worldddddd ")
+        }
+    }
+var h = myfun2();
+h()
