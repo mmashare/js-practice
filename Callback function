@@ -1,0 +1,13 @@
+//// A callback is a function passed as an argument to another function.A callback function can run after another function has finished.
+
+function greet(callback) {
+    callback()
+}
+
+
+function MyName() {
+   console.log("Himanshu")
+}
+
+// passing function as an argument,callback function
+greet(MyName);  // here we don't need to run MyName func because in greet func we already run callback() func. otherwise we need to do that way -> greet(MyName()).
