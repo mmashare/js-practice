@@ -1,0 +1,34 @@
+///// The Promise object represents the completion (or failure) of an asynchronous operation and its resulting value.
+// show the completion/failure of an async operation.
+///// promise object has three states.
+// 1 - pending - when a promise start it is on pending state.
+// 2 - Fulfilled - when the promise successfully complete then it ends in a fulfilled state.
+// 3 - Rejected - if any type of error occurs in promise operation then it ends in rejected state.
+
+///// process to create promise -> to create promise object we use Promise() constructor. promise takes a function as an argument.And that function also takes two argument {function resolve(),function reject()}. resolve exicute when promise successfull and reject exicute when promise got some error.
+
+///// When we handle more than one asynchronous task then we have to use promise chaining.In {{promise chaining}} we have then(),catch(),finally().
+/// 1 - finally() -> it runs when the promise is either resolved successfully or rejected.
+/// 2 - then() -> it runs when the promise is resolved successfully.
+/// 3 - catch() -> it runs when the promise is rejected.
+
+////////////////////// example 
+
+const someThings = ["rice","salt","tomato","onion"];
+
+const firedRice = new Promise((resolve,reject)=>{
+    if(someThings.includes("rice") && someThings.includes("tomato")){
+        resolve("ok done")
+    }else{
+        reject("not done")
+    }
+})
+
+firedRice.then((first)=>{
+    console.log(first)
+}).catch((error)=>{
+    console.log(error)
+}).finally(()=>{
+    console.log("process is done")
+})
+
