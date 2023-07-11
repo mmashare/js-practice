@@ -32,3 +32,64 @@ firedRice.then((first)=>{
     console.log("process is done")
 })
 
+////////////// Promise.all() study
+
+// promise.all() is a static method takes an iterable of promises as input and returns a single promise.
+// if you don't know about iterables,we already studied about it.
+// simple syntax -> new Promise.all([promise1,promise2,promise3])
+
+const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('The first promise has resolved');
+        resolve(10);
+    }, 1 * 1000);
+
+});
+const p2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('The second promise has rejected');
+        resolve(20);
+    }, 2 * 1000);
+});
+const p3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('The third promise has resolved');
+        resolve(30);
+    }, 3 * 1000);
+});
+
+// it return all revolve values in a single array
+
+Promise.all([p1, p2, p3])
+    .then(console.log) // The first promise has resolved,The second promise has rejected,The third promise has resolved, [ 10, 20, 30 ]
+    .catch(console.log);
+    
+////// Note -> if 3 out of 1 promise is reject then promise.all() method reject all promise just because one promise is rejected.
+
+const p4 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('The first promise has resolved');
+        resolve(10);
+    }, 1 * 1000);
+
+});
+const p5 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('The second promise has rejected');
+        reject('Failed');
+    }, 2 * 1000);
+});
+const p6 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        console.log('The third promise has resolved');
+        resolve(30);
+    }, 3 * 1000);
+});
+
+
+Promise.all([p4, p5, p6])
+    .then(console.log) // it print only console.log() statement not the values of all promise why, because 3 out of 1 promise is rejected.
+    .catch(console.log);
+    
+    
+    
