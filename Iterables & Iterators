@@ -1,0 +1,29 @@
+//////////////// iterables and interators study
+
+// note -> es6 gives a special protocal, by which we can iterate any data strcutre with for of loop. we can only use forOf loop on these data structure which has symbol.iterator() method.These types of data structure called iterables in js. There is very easy example to understand what is iterator and iterables in js. and the example is only Tony stark(iterable) can use his iron man suit becasue he has arc-raecter(symbol.iterator() method).
+/// symbol.iterator() method provide a {object} in which we have {next() method} which provides one by one {values} of any iterbale data structure.
+/////// in short
+/// symbol.iterator() -> object -> next() -> one by one values of any iterable ds
+/////////////////////// pls run this code in vscode or in browser inspect tab only ////////////////////
+
+const myarr = [1,2,4,5]
+console.log(myarr) 
+// after this line you see a values of array and prototype obj which provide various methods. now to the end of these method then you find a method -> Symbol(Symbol.iterator): function values()
+// that is iterator method() if the d/s has this method then you can apply forOf loop on it and it also called iterables d/s.
+
+//// use of symbol.itertor() method
+
+const myarr1 = [1,2,4,5]
+console.log(myarr1)
+// here we put iterator() method under a varible but it not necesaary you can use it in simple console.log()
+const iterator = myarr1[Symbol.iterator]()
+console.log(iterator) // here you see the Array Iterator {}. in this you can see a next() method now use it 
+console.log(iterator.next()) //{ value: 1, done: false }
+console.log(iterator.next()) //{ value: 2, done: false }
+console.log(iterator.next()) //{ value: 4, done: false }
+console.log(iterator.next()) //{ value: 5, done: false } 
+console.log(iterator.next()) //{ value: undefined, done: true }
+// here we run iterator with its next() method. next() print a obj in which two keys values and done. values means single value and done means is the whole array iterate or not,in last obj we can see value:undefined, done:true means whole array is iterated. 
+
+/// question - how many times times we can use .next() in one d/s
+/// answer - as many times as we want because at the end it will notice us by printing {value: undefined, done: true}. means whole d/s is printed
