@@ -1,0 +1,64 @@
+// prototype is a type of object which is provide by JS-engine to store some properties and method in it. but js-engine only provide prototype which has data type object(object,array,funcion,date).
+//// but before studying prototype we have to know what is Constructor Function.
+//// basically we use function constructor to create objects/instance of real object.
+// example
+
+// constructor function
+function Person () {
+    this.name = 'Johnnn',
+    this.age = 23,
+    this.greet = function () {
+        console.log('hello');
+    }
+}
+
+// create an object. these objects inherit all property and method from constructor function
+const person = new Person();
+console.log(person.name)
+
+/// but why we use constructor function to create objects, why we don't clone obj normally
+// here we clone objects normally
+
+let person1 = {
+    name: 'Sam'
+}
+// here we put person obj in student
+let student = person1;
+student.name = 'John';   // here we change one property in student let's see it effect on originally object or not.
+console.log(person1.name); // John
+// as you can see if you change one property from the clone it will effect on origanl also. that's why we use Constructor Function to make object/instance of orignal object. let's see the difference between normal obj vs Constructor Function.
+
+function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+// creating objects
+let person6 = new Person();
+let person7 = new Person();
+
+// adding property to person1 object
+person6.gender = 'male';
+
+// adding method to person1 object
+person6.greet = function () {
+    console.log('hello');
+}
+
+person6.greet();   // hello
+
+// Error code
+
+// person7.greet(); this got an error 
+// here we got an error person2 doesn't have greet() method. because when you make a object from contruction function it makes seprate copy of every obj. means if you add/update anything in person1 it doesn,t effect on person2 obj.and also don't effect on orignal Constructor Function.
+
+////// as we have studied constructor function, now we study prototype.
+
+function Person5(name, job, yearOfBirth){   
+    this.name= name;
+    this.job= job;
+    this.yearOfBirth= yearOfBirth;
+}
+// this will show Person's prototype property.
+console.log(Person5.prototype); // run this code in browser then you see a object that is prototype in which variuosvaious ther method already present that we use i daily life.
+
