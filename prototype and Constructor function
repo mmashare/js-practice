@@ -60,5 +60,42 @@ function Person5(name, job, yearOfBirth){
     this.yearOfBirth= yearOfBirth;
 }
 // this will show Person's prototype property.
-console.log(Person5.prototype); // run this code in browser then you see a object that is prototype in which variuosvaious ther method already present that we use i daily life.
+console.log(Person5.prototype); // run this code in browser then you see a object that is prototype in which various method already present that we use in daily life.
 
+//// if you change any properties in prototype then it will change in all objects, but there is one exception, if you make a object before changing the property in contrution function's prototype then it will not apply on previous object.
+function man(){
+    this.name = "hms"
+}
+man.prototype.money = "200 dollar"
+
+const manObject1 = new man();
+console.log(manObject1.money) // 200 dollar
+
+man.prototype.money = "500 dollar"
+
+const manObject2 = new man();
+console.log(manObject1.money) // 500 dollar
+
+// as you can see manObject1 haven't got new money value but manObject got because it has made after we change man.prototype.money.
+
+////// Prototype Chaining -> if a object try to access same property that in both constructor function and it's prototype. then it's called Prototype Chaining
+
+function myMan(){
+    this.age = 56;
+}
+myMan.prototype.age = 90
+
+const myManObject= new myMan();
+console.log(myManObject.age)  // 56 
+// as we can see before search property in prototype constructor function must see in normal function. that's why here we got contructor function age not prototype age. in that case js find the age property in myMan function if there is no property like that then js find that property in prototype.
+
+////// we can access contructor function prototype object in it's object/instance
+
+function BraveMan(){
+    this.name = "rahul"
+}
+BraveMan.prototype.age = 90;
+
+const kl = new BraveMan();
+console.log(kl.__proto__) // { age: 90 }
+// as we can see here the syntax is little bit different to access prototype -> __proto__
