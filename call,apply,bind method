@@ -1,0 +1,43 @@
+//////// call(),bline(),apply() method difference, these are three main method. all three method help to set "this" argument to the function.
+
+//// 1 - call() -> it helps us to invoke the funtion directly in which we pass argument which point to the this keyword in that function.and also we can also pass other argument in that function also.
+
+// example one
+
+let obj = {
+    firstName:"himanshu",
+    lastName:"thakur",
+    infoFuncc : function (){
+        console.log(this.firstName + " " + this.lastName)
+    }
+}
+let myobj2 = {
+    firstName:"inshul",
+    lastName:"thakur"
+}
+// obj.infoFuncc.call(argument which point to this, functions argument1,function argument2,function argument3)
+obj.infoFuncc.call(myobj2)
+/// as we can see myobj2 object will point to this keyword and the function automatically take firstName and lastName values.
+
+// example two
+function infoPrinter(hometown,state){
+    console.log(this.firstName +" "+ this.lastName+ " "+ hometown)
+}
+
+// we can also apply call() to normal function to pass argument related to this keyword.
+// as we can see that we can also pass other arguement by call method in function.
+infoPrinter.call(myobj2,"ghaziabad","uttar pradesh")
+
+//// 1 - apply() -> it works same as call() but there is only one difference which is it takes normal argument of function in a array.
+
+// obj.infoFuncc.call(argument which point to this,[func arg1,func arg2, func arg3])
+
+infoPrinter.apply(myobj2,["ghaziabad","uttar pradesh"])
+
+//// 1 - bind() -> it works same as call() but it gives a copy of that function so that we can invoke that func whenever we want.
+
+let myBlindFunc = infoPrinter.bind(myobj2,"ghazibad","uttar pradesh");
+
+myBlindFunc()
+
+///////////////////// that's it ////////////////////////////////
