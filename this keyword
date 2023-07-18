@@ -1,0 +1,147 @@
+///////////////////// this keyword //////////////////
+/////////// pls run this code in a browser or in js file.
+//// this keyword - this keyword point to object where it is called,but if this called in alone then this refer to window object.
+
+
+///// here this is called in outer space to this refers to window obj.
+// let a = this;
+// console.log(a);  // Window {}
+
+///// by this.name means we put that name key in window obj.so we can get it by window obj.
+
+// this.name = 'Sarah';  
+// console.log(window.name); // Sarah
+
+
+//////// here this keyword called in a function. that's why this keyword refer to window obj.
+
+// function greet() {
+
+//     // this inside function
+//     // this refers to the global object
+//     console.log(this);
+// }
+
+// greet();
+//// but there is exception and that is if we call this keyword in a contructor function now this refer to that obj inside which it used.always know when we use this.keyName in a function then function convert into contructor fuction. and we made construction func to make a obj inside it.
+
+// function Person4() {
+
+//     this.name = 'Jack';
+//     console.log(this);
+
+// }
+
+// let person1 = new Person4();
+// console.log(person1.name); // Person {name: 'Jack'}
+//// here we can see the out comes under a object{} becasue of contructor func.
+
+///// this Inside Object Method
+/// when we call this under a obj's method then it point to that obj itself.  
+
+// const person2 = {
+//     name : 'Jack',
+//     age: 25,
+
+//       // this inside method
+//       // this refers to the object itself
+//     greet() {
+//         console.log(this);
+//         console.log(this.name);
+//     }
+// }
+
+// person2.greet();  // {name: 'Jack', age: 25, greet: ƒ}
+
+////// this Inside Inner Function
+
+// const person = {
+//     name : 'Jack',
+//     age: 25,
+
+//     // this inside method
+//     // this refers to the object itself
+//     greet() {
+//         // here this keyword refer to obj itself
+//         console.log(this);        // {name: "Jack", age ...}
+//         console.log(this.age);  // 25
+
+//         // inner function
+//         function innerFunc() {
+            
+//             // this refers to the global object
+//             console.log(this);       // Window { ... }
+//             console.log(this.age);    // undefined
+//             // here this called inside a inner normal func so it poin to window obj not to the parent obj. that's why we can't get this.age property because person in bloack scope not in global scope so its key wouldn't store in window obj.
+//         }
+
+//         innerFunc();
+
+//     }
+// }
+
+// person.greet();
+
+///// but whatIf, we use arrow fun istead of normal func in inner func
+/// always know in arrow func this keyword point to parent scope.
+
+// const person1 = {
+//     name : 'Jack',
+//     age: 25,
+
+//     // this inside method
+//     // this refers to the object itself
+//     greet() {
+//         console.log(this);
+//         console.log(this.age);
+
+//         // inner function
+//         let innerFunc = () => {
+//             // because it's a arrow func this keyword point to parent scope obj means it point to its person1 obj. must know here greet is a method not obj that's why here this point to person1 because it is a obj.
+//             // this refers to the global object
+//             console.log(this);  //{name: 'Jack', age: 25, greet: ƒ}
+//             console.log(this.age);  // 25
+            
+//         }
+
+//         innerFunc();
+
+//     }
+// }
+
+// person1.greet();
+
+///// another example of this in arrow func
+
+// const greet4 = () => {
+//     console.log(this); // here this refer to its parent scope and here the parent scope is global scope obj that's why it point to window obj.
+// }
+// greet4(); // Window {...}
+
+//// another example
+
+// const greet = {
+//     name: 'Jack',
+
+//     // method
+//     sayHi () {
+//         /// here this refer to its parent scope obj which is greet obj.
+//         let hi = () => console.log(this.name);
+//         hi();
+//     }
+// }
+
+// greet.sayHi(); // Jack
+
+
+////// this Inside Function with Strict Mode
+/// in strict mode this refer to undefined.
+
+// 'use strict';         // here we make strict mode in js
+// this.name = 'Jack';
+// function greet3() {
+
+//     // this refers to undefined
+//     console.log(this);
+// }
+// greet3(); // undefined
