@@ -1,0 +1,155 @@
+/////////// classes/oop study ///////////////////
+
+/// classes works like a blueprint of object. as we study about contructor function which is also used as a blueprint of a object. classes introduce in es6 js. classes is better option to than constructor function. because class sytax is good and in other lnaguages class primarly used for making objects. Inheritance process of class is better than contructor function.
+
+/// classes is a special type of function in js. 
+// class Person {}
+// console.log(typeof Person); // function
+// here is the proof that class is a type of function.
+
+/// some facts of class -> classes are not hosted in js because we can't accessing a class before defining it.
+
+// here we using class before make it.
+// const p = new Person(); // ReferenceError
+
+//////// defining class
+// class Person {
+//   constructor(name) {
+//     this.name = name;
+//   }
+// }
+
+
+
+/// class vs contructor func
+function cf(name){
+    this.name = name;
+    this.greet = function(){
+        console.log(`hello ${this.name} :)`)
+    }
+}
+
+const obj1 = new cf("killer");
+console.log(obj1.name);
+obj1.greet()
+
+//---------
+
+class myclass{
+    //// in class we have to declear contructor func sepratly
+    constructor(name){
+        this.name = name;
+    }
+    //// here we can see making method is so easy in class with less syntax
+    greet1(){
+        console.log(`hello ${this.name} :)`)
+    }
+}
+
+const obj2 = new myclass("hms");
+console.log(obj2.name);
+obj2.greet1()
+
+////// getter and setter method in class
+///  in other languages we have to make getter and setter method manually, but in js we got get and set keyword specially to make these type of method.
+
+class myclass2{
+    constructor(name){
+        this.name = name;
+    }
+    get Namer(){
+        return this.name
+    }
+    set Namer(Newname){
+        this.name = Newname
+    }
+}
+
+const obj3 = new myclass2("hms25");
+console.log("--------------------")
+console.log(obj3.Namer); // althought it is a getter method but we have to call it like a property in js.
+obj3.Namer = "kas35";  // here we use setter method to change name property.
+console.log(obj3.Namer) // kas35
+
+
+/////////// inheritance in clasess ///////////////
+// in class there is a important topic inheritance. Inheritance means class give it all properties and methods to another class.
+// In class inheritance, you use the extends keyword.
+
+class myclass4{
+    constructor(name,gender){
+        this.name = name;
+        this.gender = gender;
+        
+    }
+    greeting(){
+        console.log(`hello ${this.name} and your gender is ${this.gender}`)
+    }
+}
+
+class smallClass extends myclass4{
+    constructor(name,gender,age,height){ // we have to write name,gender property here because we want to use these property here.doesn't matter they both are present in parent class.
+        super(name,gender) 
+        // with the help of super keyword we are getting name and gender property from parent class. and we don't need to connect name and gender proprety to this keyword becasue we are getting these from parent class.use this keyword after used super() method.
+        this.age = age;
+        this.height = height;
+    }
+    moreGreeting(){
+        console.log(`hello ${this.name} and your gender ${this.gender} and your age is ${this.age} and your height is ${this.height}`)
+    }
+}
+
+const yu = new smallClass("hmsss","male","56","5cm")
+yu.moreGreeting()
+
+//////// overriding method and property in child class ///////////
+// here we Overriding same name property and method in child class.
+
+// parent class
+class myparentClass{
+    constructor(name){
+        this.name = name;
+        this.occupation = "doctor"
+    }
+    mygretting(){
+        console.log(`hello ${this.name} and ${this.occupation}`)
+    }
+    
+}
+// child class
+class myChildClass extends myparentClass{
+    constructor(name,occupation){
+        super(name)
+        this.occupation = "app development" // here we overwrite this property in child class.
+    }
+    // here we also overwrite this method
+    mygretting(){
+        console.log(`hello ${this.name} from child class and your occupation is  ${this.occupation}`)
+    }
+}
+
+let p = new myChildClass('Jack');
+p.mygretting();
+
+/////// static method and static property ////////
+// when you make a static method and static property then you don't need to invoke that property and method by object you can call it simply by class name.
+
+class Item {
+  constructor(name, quantity) {
+    this.name = name;
+   
+  }
+  static count = 0;
+  
+  static getCount() {
+    return Item.count; // here we accessing count from class name because we don't introduce in constructor func and we don't add this property to this
+  }
+}
+
+
+let pen = new Item("Pen", 5);
+// here we call that method by class name not by object name.
+console.log(Item.getCount()); // 2
+
+
+///// benefits of inheritence in class -> we don't need to make same property adnmethod again in child class.all functionlity already got child class from parent class.this make cleaner code and easier to maintain. although we can override these method and property in child class.
