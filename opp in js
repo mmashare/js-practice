@@ -1,5 +1,6 @@
 /////////// classes/oop study ///////////////////
-
+// oop means object-oriented language. oop doesn't mean classes but in oop class model is very famouse to use. in which we make class as a blueprint and make object by classes means obj get inhrt all the properties and method from classes.
+// JavaScript isn't a classed-based langauge.but still js provide classes. JS is a prototype-based langauge and we already study prototype in js.
 /// classes works like a blueprint of object. as we study about contructor function which is also used as a blueprint of a object. classes introduce in es6 js. classes is better option to than constructor function. because class sytax is good and in other lnaguages class primarly used for making objects. Inheritance process of class is better than contructor function.
 
 /// classes is a special type of function in js. 
