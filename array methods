@@ -1,0 +1,57 @@
+ //////////////// some important array method ////////////
+ 
+ ///////// array.forEach() -> this method just to print values(console.log), but it can not return values.it takes a callback fun.
+ 
+ const ol = ["hms","jms","kms","ils"];
+ ol.forEach((h)=>{
+     console.log(h)
+ });
+ 
+ console.log("------------------------------------")
+ 
+ const vall = [2,4,6,8,10];
+ vall.forEach((num)=>{ // this arrow func is called callback fun
+     console.log(num*num); // it wil return a square
+ })
+ 
+ //////// array.map() -> this method is little different from .forEach() method because it always return a value and we use this method to store values in a variable.it takes a callback func.
+ 
+ /// always know with map method we always return a value but if we don't return a value just do console.log() then map will return undefined for all values.map is basically used for store value in a varibale using a loop it works like forEach but with some difference.
+ 
+ console.log("--------------------------------")
+ const ll = [2,4,6,8];
+ 
+ let yk = ll.map((h)=>{return h})
+ console.log(yk) // [ 2, 4, 6, 8 ]
+ 
+ //// advance example
+console.log("--------------------------") 
+ const emp = [
+    { name: "Adam", salary: 5000, bonus: 500, tax: 1000 },
+    { name: "Noah", salary: 8000, bonus: 1500, tax: 2500 },
+    { name: "Fabiano", salary: 1500, bonus: 500, tax: 200 },
+    { name: "Alireza", salary: 4500, bonus: 1000, tax: 900 },
+];
+
+emp.forEach((h)=>{console.log(h.name)}) // Adam,Noah,Fabiano,Alireza
+
+///////// filter method ///////////////////
+/////// filter method is used to store a array of vaules which is filter by some condition. and that array is stored in a variable.
+
+console.log("----------------------------")
+const jo = [2,4,5,6,8,9,11]
+// in filter method we put a condition in callback, according to this condition value will filter.
+const evenNumbers = jo.filter((h)=>{return h % 2 === 0});
+console.log(evenNumbers) // [ 2, 4, 6, 8 ]
+
+const pl = [
+    {name:"hms",gender:"male"},
+    {name:"ims",gender:"female"},
+    {name:"kms",gender:"male"}
+    ];
+
+const maleEmpl = pl.filter((h)=>{
+    return h.gender === "male"
+})
+console.log(maleEmpl);
+
