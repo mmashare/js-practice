@@ -55,3 +55,63 @@ const maleEmpl = pl.filter((h)=>{
 })
 console.log(maleEmpl);
 
+////////////// reduce /////////////////
+// in this method we add array value one-by-one, at each step adding the current array value to the result from the previous step.we use this method to add all the element of an arary by this method we can get a total count of array values.
+
+// syntax -> arr.reduce(callback(accumulator, currentValue), initialValue)
+// accumulator means the total you got from previous step and currentValue get one by one values from the array you provide. initialValue(optional), array values start counting with initalValue but if you don't give it then your first element of aray works like a initialValue or you can say the first element works like a accumulator because somehow your first element behaves like a accumulator.
+console.log("----------------------------------")
+const bn = [4,7,9,3,2];
+
+const sum = bn.reduce((accumulator,currentValue)=>{
+    return accumulator + currentValue
+})
+console.log(sum) // 25
+
+////// how reduce work here
+/// accu + current = total
+/// 4    +  7     = 11
+/// 11   +  9     = 20
+/// 20   + 3      = 23
+/// 23  + 2       = 25
+//// because we don't provide initial value here so array first element works like a initaial value/accumulator.
+console.log("----------------------------------")
+const userCart = [
+    {product:1,productName:"laptop",price:10},
+    {product:2,productName:"phone",price:15},
+    {product:3,productName:"tab",price:20}
+    ]
+const sum2 = userCart.reduce((accu,currentValue)=>{
+    return accu + currentValue.price // here we write curretnVlaue.price becuase we want to calculate price property only with accumulator but what is the accumulator here, so the initialValue that we provided works like a accumulator here.
+},0);
+console.log(sum2)
+
+////// how reduce work here
+/// accu + current = total
+/// 0    +  10     = 10
+/// 10   +  15     = 25
+/// 25   + 20      = 45
+
+/////////////////// sort method //////////////////////
+// in this method js first convert all the into string then get the UTF-16 values of that string then cort them. and this method also apply on number in js.
+/// UTF-16 provide a unique values for every string. basically of the p. lang use UTF-8 but js use UTF-16 because in utf-16 we get unique code of emiji and korean,chinese,japnese words.
+//// some shocking facts of UTF-16 values - small (a) = 97, capital (A) = 65.... 
+
+
+// when you write normally .sort() without compare func callback then it simply convert all number into string then get the utf-16 code of these values then sort these values. but why 100 comes first after the array sorted.now you want to know how sort() method works in js
+// this is the array that sorted -> [256,64,37,100]. now js first convert these number into string. and get the utf-16 code of these number but when js get the utf-16 code of numbers it only takes one number doesn't matter how long number is. In 256 js only take 2 which has 50 utf code,In 64 js takes 6 which has 54, In 37 js takes 3 which has 51, in 100 js takes 1 which has 49.now js sort in utf code in accending order that's why we got [100,256,37,64].here you can see how sort method works automatically. 
+const IN = [2,6,3,100];
+const DefaultSort = IN.sort(); // [ 100, 2, 3, 6 ]
+console.log(DefaultSort)
+
+/// but how we can fix it, if you want to fix this problem you have to put a compare callback function in sort method.here a-b means we want to get the result in accending order but if we do like (b-a) then it's means that we want the answer in decendig order.
+const ManualSort = IN.sort((a,b)=>{return a - b})
+console.log(ManualSort) // [ 2, 3, 6, 100 ]
+
+// yehhh we got the right accending order here but how js sort it.
+// a value  - b value = answer
+// 2        - 6       = -4 
+// 3        - 100     = -97
+// because answer comes in negative js got that the a is smaller than b because when you subtract small number to big number then answer comes in negaitve value.js perform that process for all element one by one.and got which is bigger a or b
+
+//// now it totally depands on you weather you write (a-b) or (b-a). if you have wrote a-b(accending) then js would give you small element first which is (a) here then it gives you (b) which is bigger element. so that's how sorting work with compare callbacak function.
