@@ -115,3 +115,45 @@ console.log(ManualSort) // [ 2, 3, 6, 100 ]
 // because answer comes in negative js got that the a is smaller than b because when you subtract small number to big number then answer comes in negaitve value.js perform that process for all element one by one.and got which is bigger a or b
 
 //// now it totally depands on you weather you write (a-b) or (b-a). if you have wrote a-b(accending) then js would give you small element first which is (a) here then it gives you (b) which is bigger element. so that's how sorting work with compare callbacak function.
+
+//////////////// every method ////////////////
+/// every method looks similer to filter method but every method works little bit different than filter method.
+
+const er = [2,4,7,9];
+const everyValue = er.every((h)=>{return 2 % h === 0});
+console.log(everyValue) // false
+
+/// why we got false because even though we have 2 values in array which is divisable by 2 and 2 values are not divisiable by 2. so in every method your condition must be applied in all value otherwise it return false.
+
+///////////////////// some method ////////////////////
+// some is work same as every method.but in Some method if your condition match with atleast 1 element in array then it return true.
+
+const er2 = [2,4,7,9];
+const everyValue2 = er.some((h)=>{return 2 % h === 0});
+console.log(everyValue2) // true
+
+// getting true because here our condition match with one element o the array. 
+
+/////////////// fill method //////////////////////
+/// we use fill method to add values in a new array or edit element in the array.
+/// syntax -------------> (value,startINdex,endIndex(exclusive))
+
+/// add element in array
+console.log("------------------------")
+const yh2 = new Array(5).fill(9);
+console.log(yh2) // [ 9, 9, 9, 9, 9 ]
+
+/// edit element in array
+const er3 = [1,2,3,4,5,6,7,8,9];
+const changedValue  = er3.fill(0,2,6); // [1, 2, 0, 0, 0,0, 7, 8, 9]
+console.log(changedValue)
+
+///////////////// slice method /////////////
+/// slicing the array element from a one index to another index.
+/// syntax ------------------> slice(startindex,endIndex(exclusive) )
+// if you count array from beganing its index start from 0,1,2 so on. but if you array element from the end then the lsat elment index would be -1 and second last element is -2 and so on.
+
+const er5 = ["css","html","c++","c","java"];
+const changedValue2  = er5.slice(0,-1); 
+// we are slicing aray from 0 index which is inclusive value to last element(exclusive).when you put last element index at the place of endIndex then it will assum it second last elemnt index because it take as exclusive value.
+console.log(changedValue2) // [ 'css', 'html', 'c++', 'c' ]
