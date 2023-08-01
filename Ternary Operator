@@ -1,0 +1,18 @@
+ ///// ternary operator is good alternative of if-else becasue it's syntax is very small and clean
+ 
+ let marks  = prompt("enter the marks: " );
+ // by default prompt takes string value but we can change it.
+//  console.log(typeof marks) /// string
+ 
+ /// (condition)?true:false
+ const result= (marks >= 40)? "Pass":"Fail";
+ console.log(result)
+ 
+/// nested ternary operator
+let a = prompt("enter a number: ");
+
+//// if the bigCondition is become true then we fall into nestedCondition otherwise all become false.
+(Bigcondition)?(nestedCondition? "true":"false"):"Big Flase"
+
+const result2 = (a>=0)?(a==0 ?"zero":"positive"):"negative";
+console.log(result2)
