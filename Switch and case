@@ -1,0 +1,29 @@
+/// here we use switch/case/default statement here which is switch statement is used in decision making. we make a small calulator.
+
+let result;
+
+const operator = prompt("enter the operator here: ");
+
+// parseInt accept a string value and change into a number datatype.
+let number1 = parseInt(prompt('Enter first number: '));
+let number2 = parseInt(prompt('Enter sec number: '));
+
+switch(operator){
+    case "+":
+        result = number1 + number2;
+    break;
+    case "-":
+        result = number2 - number1;
+    break;
+    case "*":
+        result = number1 * number2;
+    break;
+    case "/":
+        result = number1 / number2;
+    break;
+    default:
+        console.log('Invalid operator');
+    break;
+}
+
+console.log(result);
