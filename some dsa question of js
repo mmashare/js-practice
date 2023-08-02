@@ -1,0 +1,107 @@
+ /// largest prefix in array find it.
+ // Input: strs = ["flower","flow","flight"];
+ // output: "fl"
+ 
+ let myArr = ["flower","flow","flight"];
+ let myArr1 = ["glower","glow","glight"];
+ 
+ function PrefixFinder(arr){
+     let answer;
+ for(let i=0;i < arr.length;i++){
+     if(arr[i].slice(0,2).includes("fl")){
+         answer = arr[i].slice(0,2)
+     }else{
+         answer = "no prefix"
+     }
+     return answer;
+ }
+ }
+let myAnswer =  PrefixFinder(myArr);
+console.log(myAnswer)
+ 
+ ///////////////////// find the missing element in arr ///////////////////
+ 
+ let Myarr2 = [1,2,3,4,6,7,8,9,10];
+ 
+ function MissingNumber(arr){
+     let Myanswer;
+     let min;
+     let max;
+     for(let i=0;i < arr.length-1;i++){
+         min = arr[i]     //1 
+         max= arr[i+1] // 2
+/// max always +1 then min. in max var 5 never come because it add +1 in {{index of array}}. and 5 is not include in that array. min +1 means min value +1 it's means that 5 can come in min variable because it just normally {{add +1 in aray value}}.
+
+         if(min + 1 !== max){
+             return Myanswer = min +1
+         }else{
+             Myanswer = "no"
+         }
+         
+     }
+     return Myanswer
+    
+ }
+
+ let myMissingNum = MissingNumber(Myarr2);
+ console.log(myMissingNum) // 5
+ 
+ /////////////// find the duplicate value in that array /////////////////
+ const Myarr3 = [1,2,3,4,5,6,7,7,8,6,10];
+ 
+ function DuplicateFinder(arr){
+     let MyAnswer;
+     for(let i=0;i< arr.length;i++){
+         if(arr[i] === arr[i +1]){
+             return MyAnswer= arr[i];
+         }else{
+             MyAnswer= "no duplicate value"
+         }
+     }
+     return MyAnswer
+ }
+ 
+  let myDuplicateFinder = DuplicateFinder(Myarr3);
+ console.log(myDuplicateFinder) // 7
+ 
+ 
+ //// find the largest and the smallest number in unsort arr
+ console.log("------------------")
+ const Myarr4 = [1, 2,90, 7, 4, 100];
+ 
+ function SmallestAndLargestNumFinder(arr){
+     let min=arr[0]
+     let max=arr[0]
+     
+     //////////// with .forEach() method loop /////////////
+    //  arr.forEach((i)=>{
+    //      if(i > max){ 
+    //          max = i;
+    //      }
+    //      if(i < min){
+    //          min = i;
+    //      }
+    //  })
+
+     
+    
+//////////// with normal for loop //////////////
+
+      for(let i =0;i<arr.length;i++){
+          if(arr[i] > max){  // here we compare arr first element to max(which has alrady array first element). it compare this hing in a loop
+              max = arr[i];
+          }
+         if(arr[i] < min){  // here we compare arr first element to max(which has alrady array first element). it compare this hing in a loop
+                  min = arr[i];
+              }
+      }
+    
+     
+     
+     
+    console.log(max)
+    console.log(min)
+     
+ }
+ 
+ SmallestAndLargestNumFinder(Myarr4);
